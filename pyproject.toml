@@ -10,5 +10,8 @@ dependencies = [
     "python-dotenv",
 ]
 
+[tool.setuptools]
+py-modules = ["multiagent", "enterprise_agent_demo"]
+
 [tool.ruff]
 line-length = 100
