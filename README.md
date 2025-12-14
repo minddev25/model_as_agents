@@ -1,4 +1,4 @@
-# The Model-as-Agent Era: Multi-Agent in ~300 Lines (No Framework)
+# The Age of "Model Is The Agent" Has Arrived: Multi-Agent in ~300 Lines From Scratch (No Framework)
 
 *Modern AI models can now orchestrate multi-agent systems natively. No LangChain, no CrewAI, no AutoGen needed.*
 
@@ -6,7 +6,7 @@
 
 ---
 
-# Part 1: The Age of "Model Is The Agent"
+# The Age of "Model Is The Agent"
 
 Remember when building an AI agent meant stitching together a dozen libraries? You'd wire up LangChain for orchestration, add a vector store, configure memory modules, and pray everything worked together.
 
@@ -35,7 +35,7 @@ The result? Your "framework" becomes a simple while-loop that feeds tool results
 
 ---
 
-# Part 2: Building a Multi-Agent System from Scratch
+# Building a Multi-Agent System from Scratch
 
 In this section, I'll show you how to build a fully functional **multi-agent enterprise assistant** with:
 
@@ -59,14 +59,23 @@ The example uses GPT-5.2's Responses API, but the pattern applies to any model w
 │  └───────────────────────────────────────────────────────┘  │
 │          │                    │                    │        │
 │          ▼                    ▼                    ▼        │
-│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐     │
-│  │ SalesAgent  │    │ PolicyAgent │    │ LeaveAgent  │     │
-│  │ [query_db]  │    │ [search]    │    │ [submit]    │     │
-│  └─────────────┘    └─────────────┘    └─────────────┘     │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐      │
+│  │ SalesAgent  │    │ PolicyAgent │    │ LeaveAgent  │      │
+│  │ [query_db]  │    │ [search]    │    │ [submit]    │      │
+│  └─────────────┘    └─────────────┘    └─────────────┘      │
 └─────────────────────────────────────────────────────────────┘
 ```
 
 ## How It Works: The Complete Flow
+
+The multi-agent system follows a simple loop:
+
+1. **User Query** → Enters the system and goes to the Supervisor
+2. **Supervisor Decision** → Model analyzes the query and decides: hand off to a specialist, or handle directly?
+3. **Handoff (if needed)** → Supervisor calls `transfer_to_X` tool, switching control to a Worker Agent
+4. **Tool Execution** → Worker Agent calls its domain-specific tools (query DB, search docs, submit requests)
+5. **Result Aggregation** → Tool outputs are appended to conversation history
+6. **Loop or Return** → If no final text output, loop back; otherwise return the answer to user
 
 ```mermaid
 flowchart TD
@@ -407,7 +416,7 @@ The model routes correctly every time—not because of keyword matching, but bec
 
 ---
 
-# Part 3: Insights & Conclusion
+# Conclusion
 
 ## Why This Matters
 
@@ -451,7 +460,7 @@ But for most use cases? Native tool-calling is enough.
 
 ---
 
-## Conclusion
+## Summary
 
 Modern AI models represent a paradigm shift. The model isn't just a component in your agent—**the model IS the agent**.
 
