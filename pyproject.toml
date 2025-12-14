@@ -1,0 +1,14 @@
+[project]
+name = "model-as-agents"
+version = "0.1.0"
+description = "Build multi-agent systems with GPT-5.2, no frameworks."
+authors = [{ name = "Guokai Zhao" }]
+readme = "README.md"
+requires-python = ">=3.10"
+
+[project.dependencies]
+openai = "*"
+python-dotenv = "*"
+
+[tool.ruff]
+line-length = 100
