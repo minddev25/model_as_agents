@@ -2,8 +2,6 @@
 
 *Modern AI models can now orchestrate multi-agent systems natively. No LangChain, no CrewAI, no AutoGen needed.*
 
-> 📖 **Read this article for free:** [github.com/minddev25/model_as_agents](https://github.com/minddev25/model_as_agents)
-
 ---
 
 # The Age of "Model Is The Agent"
