@@ -13,12 +13,18 @@ git clone https://github.com/minddev25/model_as_agents
 cd model_as_agents
 ```
 
-2. Install dependencies:
+2. Create and activate a virtual environment:
 ```bash
-pip install -e .
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-3. Set up your API key:
+3. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+4. Set up your API key:
 ```bash
 cp .env.example .env
 # Edit .env and add your OpenAI API key
